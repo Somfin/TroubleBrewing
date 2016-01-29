@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class DrunkMovement : MonoBehaviour {
+    public string verticalAxis;
+    public string horizontalAxis;
     public float rotationSpeed;
     public float movementSpeed;
     public float accelleration;
@@ -18,8 +20,8 @@ public class DrunkMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.stickX = Input.GetAxis("Horizontal");
-        this.stickY = Input.GetAxis("Vertical");
+        this.stickX = Input.GetAxis(horizontalAxis);
+        this.stickY = Input.GetAxis(verticalAxis);
 	}
 
     void FixedUpdate()
