@@ -5,10 +5,10 @@ public class Alchemy : LimitedPlacement
 {
     public GameObject[] combinations;
     public GameObject spawnPoint;
-    private Reageant.Ingredient currentIngredient;
+    private Ingredient currentIngredient;
     private bool ingredientSet;
 
-    public override void process(Reageant.Ingredient ingredient)
+    public override void process(Ingredient ingredient)
     {
         if (!ingredientSet)
         {
