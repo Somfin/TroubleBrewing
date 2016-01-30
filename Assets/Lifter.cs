@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Lifter : MonoBehaviour {
+    public bool literate;
     public string liftCommand;
     public GameObject holdPoint;
     public LiftableType[] capabilities;
@@ -110,7 +111,14 @@ public class Lifter : MonoBehaviour {
 
     void OnTriggerStay(Collider c)
     {
-        Debug.Log(c);
+        if (literate)
+        {
+            Information info = c.gameObject.GetComponent<Information>();
+            if (info != null)
+            {
+                info.display();
+            }
+        }
         if (liftedObject != null)
         {
             Placeable placeable = liftedObject.GetComponent<Placeable>();
