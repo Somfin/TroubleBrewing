@@ -22,12 +22,15 @@ public class Cauldron : Placement
         Destroy(core);
         if (rec.ingredientCheck(currentIndex, incoming))
         {
-            GameObject.Destroy(GameObject.Instantiate(winShine), 4);
+            GameObject win = GameObject.Instantiate(winShine);
+            win.transform.position = this.gameObject.transform.position;
+            GameObject.Destroy(win, 4);
+            currentIndex++;
         }
         else
         {
             GameObject fail = GameObject.Instantiate(failShine);
-            fail.transform.parent = gameObject.transform;
+            fail.transform.position = this.gameObject.transform.position;
         }
         return true;
     }
