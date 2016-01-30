@@ -1,4 +1,8 @@
-﻿public class Recipe{
+﻿using UnityEngine;
+using System.Collections;
+
+public class Recipe : MonoBehaviour
+{
     public Ingredient[] ingredients;
     private int currentIndex = 0;
 
