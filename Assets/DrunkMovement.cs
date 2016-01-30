@@ -45,9 +45,7 @@ public class DrunkMovement : MonoBehaviour {
         {
             previousMove = Vector3.Lerp(previousMove, currentMove, decelleration * Time.deltaTime);
         }
-        if (controller.enabled)
-        {
-            controller.Move(previousMove);
-        }
+        controller.Move(previousMove);
+        controller.Move(new Vector3(0, -gameObject.transform.position.y, 0));
     }
 }

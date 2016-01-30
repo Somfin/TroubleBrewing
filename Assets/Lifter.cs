@@ -54,6 +54,7 @@ public class Lifter : MonoBehaviour {
                 {
                     if (liftedObject.GetComponent<Rigidbody>() != null)
                     {
+                        liftedObject.GetComponent<Rigidbody>().detectCollisions = true;
                         liftedObject.GetComponent<Rigidbody>().useGravity = true;
                     }
                     else
@@ -75,6 +76,7 @@ public class Lifter : MonoBehaviour {
                         targetObject = targetObject.GetComponent<Liftable>().lift();
                         if (targetObject.GetComponent<Rigidbody>() != null)
                         {
+                            targetObject.GetComponent<Rigidbody>().detectCollisions = false;
                             targetObject.GetComponent<Rigidbody>().useGravity = false;
                             targetObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                             targetObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
