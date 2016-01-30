@@ -64,7 +64,6 @@ public class Lifter : MonoBehaviour {
                     }
                     liftedObject.transform.parent = null;
                     liftedObject = null;
-                    lifting = false;
                 }
             }
             else if (targetObject != null)
@@ -101,8 +100,8 @@ public class Lifter : MonoBehaviour {
                 {
                     Debug.Log("Lift success!");
                 }
-                lifting = false;
             }
+            lifting = false;
         }
     }
 

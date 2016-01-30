@@ -4,9 +4,22 @@ using System.Collections;
 public class Recipe : MonoBehaviour
 {
     public Ingredient[] ingredients;
-    private int currentIndex = 0;
+    public int currentIndex;
+    private bool started;
 
-    public bool nextIngredientCheck(Ingredient next){
+    void Start()
+    {
+        started = false;
+    }
+
+    public bool nextIngredientCheck(Ingredient next)
+    {
+        if (!started)
+        {
+            started = true;
+            currentIndex = 0;
+        }
+        Debug.Log(currentIndex);
         if (ingredients[currentIndex] == next){
             currentIndex ++;
             return true;
