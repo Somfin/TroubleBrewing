@@ -32,7 +32,7 @@ public class Lifter : MonoBehaviour {
     {
         if (liftedObject != null)
         {
-            liftedObject.transform.position = holdPoint.transform.position;
+            liftedObject.transform.Translate(holdPoint.transform.position - liftedObject.transform.position, Space.World);
         }
         if (lifting)
         {
@@ -53,8 +53,15 @@ public class Lifter : MonoBehaviour {
                 }
                 if (!placed)
                 {
-                    liftedObject.GetComponent<Rigidbody>().detectCollisions = true;
-                    liftedObject.GetComponent<Rigidbody>().useGravity = true;
+                    if (liftedObject.GetComponent<Rigidbody>() != null)
+                    {
+                        liftedObject.GetComponent<Rigidbody>().useGravity = true;
+                    }
+                    else
+                    {
+                        liftedObject.transform.position = this.gameObject.transform.position + this.gameObject.transform.forward * 1.2f;
+                        liftedObject.GetComponent<CharacterController>().enabled = true;
+                    }
                     liftedObject.transform.parent = null;
                     liftedObject = null;
                     lifting = false;
@@ -68,10 +75,16 @@ public class Lifter : MonoBehaviour {
                     if (capabilities[i] == (targetObject.GetComponent<Liftable>()).type)
                     {
                         targetObject = targetObject.GetComponent<Liftable>().lift();
-                        targetObject.GetComponent<Rigidbody>().detectCollisions = false;
-                        targetObject.GetComponent<Rigidbody>().useGravity = false;
-                        targetObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        targetObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        if (targetObject.GetComponent<Rigidbody>() != null)
+                        {
+                            targetObject.GetComponent<Rigidbody>().useGravity = false;
+                            targetObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            targetObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        }
+                        else
+                        {
+                            targetObject.GetComponent<CharacterController>().enabled = false;
+                        }
                         targetObject.transform.parent = gameObject.transform;
                         targetObject.transform.position = holdPoint.transform.position;
                         liftedObject = targetObject;
@@ -109,7 +122,7 @@ public class Lifter : MonoBehaviour {
             Liftable liftable = c.gameObject.GetComponent<Liftable>();
             if (liftable != null)
             {
-                if (targetObject == null || (c.gameObject.transform.position - this.gameObject.transform.forward).magnitude < (this.targetObject.transform.position - this.gameObject.transform.forward).magnitude)
+                if (c.gameObject != this.gameObject && (targetObject == null || (c.gameObject.transform.position - this.gameObject.transform.forward).magnitude < (this.targetObject.transform.position - this.gameObject.transform.forward).magnitude))
                 {
                     this.targetObject = c.gameObject;
                 }
@@ -121,8 +134,7 @@ public class Lifter : MonoBehaviour {
     {
         if (liftedObject != null)
         {
-            Placeable placeable = liftedObject.GetComponent<Placeable>();
-            Placement placement = c.gameObject.GetComponent<Placement>();
+            targetPlacement = null;
         } else if (c.gameObject == targetObject)
         {
             targetObject = null;

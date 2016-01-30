@@ -12,10 +12,11 @@ public class DrunkMovement : MonoBehaviour {
     private float stickY;
 
     private Vector3 previousMove;
+    private CharacterController controller;
 
 	// Use this for initialization
 	void Start () {
-	
+        this.controller = gameObject.GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +45,9 @@ public class DrunkMovement : MonoBehaviour {
         {
             previousMove = Vector3.Lerp(previousMove, currentMove, decelleration * Time.deltaTime);
         }
-        gameObject.transform.Translate(previousMove, Space.World);
+        if (controller.enabled)
+        {
+            controller.Move(previousMove);
+        }
     }
 }
