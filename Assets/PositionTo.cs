@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PositionTo : MonoBehaviour {
     private GameObject child;
+    public Vector3 offset;
 
     void Start()
     {
@@ -12,6 +13,6 @@ public class PositionTo : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = Camera.main.WorldToScreenPoint(child.transform.position);
+        this.transform.position = Camera.main.WorldToScreenPoint(child.transform.position) + offset;
 	}
 }

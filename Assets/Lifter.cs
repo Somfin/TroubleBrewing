@@ -83,6 +83,14 @@ public class Lifter : MonoBehaviour {
                             targetObject.GetComponent<Rigidbody>().useGravity = false;
                             targetObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                             targetObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                            if (literate)
+                            {
+                                Information info = targetObject.GetComponent<Information>();
+                                if (info != null)
+                                {
+                                    info.display();
+                                }
+                            }
                         }
                         else
                         {
