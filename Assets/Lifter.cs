@@ -43,7 +43,6 @@ public class Lifter : MonoBehaviour {
                 {
                     Placeable toPlace = liftedObject.GetComponent<Placeable>();
                     if (toPlace != null){
-                        Ingredient nature = toPlace.nature;
                         if (targetPlacement.GetComponent<Placement>().place(liftedObject))
                         {
                             liftedObject = null;

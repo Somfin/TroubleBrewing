@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Recipe : MonoBehaviour
 {
-    public Ingredient[] ingredients;
+    public Reageant.Ingredient[] ingredients;
 
-    public bool ingredientCheck(int index, Ingredient next)
+    public bool ingredientCheck(int index, Reageant.Ingredient next)
     {
         if (ingredients[index] == next){
             return true;

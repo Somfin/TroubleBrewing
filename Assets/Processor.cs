@@ -6,7 +6,7 @@ public class Processor : LimitedPlacement
     public GameObject[] processes;
     public GameObject spawnPoint;
 
-    public override void process(Ingredient ingredient)
+    public override void process(Reageant.Ingredient ingredient)
     {
         foreach (GameObject processor in processes){
             Process process = processor.GetComponent<Process>();

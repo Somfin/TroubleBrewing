@@ -17,7 +17,7 @@ public class Cauldron : Placement
         if (toPlace == null){
             return false;
         }
-        Ingredient incoming = toPlace.nature;
+        Reageant.Ingredient incoming = toPlace.nature;
         Recipe rec = recipe.GetComponent<Recipe>();
         Destroy(core);
         if (rec.ingredientCheck(currentIndex, incoming))

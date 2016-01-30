@@ -2,5 +2,5 @@
 using System.Collections;
 
 public class Placeable : MonoBehaviour {
-    public Ingredient nature;
+    public Reageant.Ingredient nature;
 }
