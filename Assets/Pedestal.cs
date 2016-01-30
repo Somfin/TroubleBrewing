@@ -19,7 +19,7 @@ public class Pedestal : Placement
             if (incoming == canTake[i]){
                 currentIngredient = incoming;
                 core.transform.position = heldObjectPosition.transform.position;
-                core.GetComponent<Rigidbody>().useGravity = false;
+                core.GetComponent<Rigidbody>().detectCollisions = true;
                 core.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 core.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 return true;

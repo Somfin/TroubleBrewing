@@ -46,6 +46,7 @@ public class Lifter : MonoBehaviour {
                         if (targetPlacement.GetComponent<Placement>().place(liftedObject))
                         {
                             liftedObject.transform.parent = null;
+                            targetPlacement = null;
                             liftedObject = null;
                             placed = true;
                         }
@@ -109,6 +110,7 @@ public class Lifter : MonoBehaviour {
 
     void OnTriggerStay(Collider c)
     {
+        Debug.Log(c);
         if (liftedObject != null)
         {
             Placeable placeable = liftedObject.GetComponent<Placeable>();
