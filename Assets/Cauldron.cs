@@ -21,7 +21,21 @@ public class Cauldron : Placement
         Ingredient incoming = toPlace.nature;
         Recipe rec = recipe.GetComponent<Recipe>();
         Destroy(core);
+        bool success = false;
         if (rec.ingredientCheck(currentIndex, incoming))
+        {
+            success = true;
+        }
+        else
+        {
+            // Assume failure means that it might need to check the pedestal
+            Pedestal catalyst = pedestal.GetComponent<Pedestal>();
+            if (rec.ingredientCheck(currentIndex, catalyst.currentIngredient))
+            {
+                success = true;
+            }
+        }
+        if (success)
         {
             GameObject win = GameObject.Instantiate(winShine);
             win.transform.position = this.gameObject.transform.position;
