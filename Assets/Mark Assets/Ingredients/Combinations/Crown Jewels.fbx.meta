@@ -1,17 +1,35 @@
 fileFormatVersion: 2
-guid: 504bdddb69b0d06429b300bacae36d6b
-timeCreated: 1454128155
+guid: 66ca9d4d78156d3429a746111297e93b
+timeCreated: 1454193835
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: dragon_skull:pCube2
+    100004: polySurface5
+    100006: polySurface6
+    100008: polySurface7
+    100010: polySurface8
+    100012: pPipe2
+    100014: transform2
+    100016: transform3
+    100018: transform4
+    100020: transform5
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: couldron2
-    4300002: couldron3
-    4300004: polySurface24
+    400002: dragon_skull:pCube2
+    400004: polySurface5
+    400006: polySurface6
+    400008: polySurface7
+    400010: polySurface8
+    400012: pPipe2
+    400014: transform2
+    400016: transform3
+    400018: transform4
+    400020: transform5
+    2300000: pPipe2
+    3300000: pPipe2
+    4300000: pPipe2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -37,7 +55,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 22
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
