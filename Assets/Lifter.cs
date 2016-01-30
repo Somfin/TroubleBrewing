@@ -45,6 +45,7 @@ public class Lifter : MonoBehaviour {
                     if (toPlace != null){
                         if (targetPlacement.GetComponent<Placement>().place(liftedObject))
                         {
+                            liftedObject.transform.parent = null;
                             liftedObject = null;
                             placed = true;
                         }

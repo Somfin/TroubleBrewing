@@ -1,6 +1,4 @@
-﻿public class Reageant{
-
-    public enum Ingredient
+﻿public enum Ingredient
     {
         // Basic ingredients
         RED_BERRIES,
@@ -78,9 +76,3 @@
         ENERGY_CRYSTAL,
         DRAGON_SKULL
     }
-
-    public static bool isCatalyst(Ingredient i)
-    {
-        return i >= Ingredient.OBELISK_OF_CHRONOS;
-    }
-}

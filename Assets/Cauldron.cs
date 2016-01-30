@@ -4,6 +4,7 @@ using System.Collections;
 public class Cauldron : Placement
 {
     public GameObject recipe;
+    public GameObject pedestal;
     public int currentIndex;
     public GameObject winShine;
     public GameObject failShine;
@@ -17,7 +18,7 @@ public class Cauldron : Placement
         if (toPlace == null){
             return false;
         }
-        Reageant.Ingredient incoming = toPlace.nature;
+        Ingredient incoming = toPlace.nature;
         Recipe rec = recipe.GetComponent<Recipe>();
         Destroy(core);
         if (rec.ingredientCheck(currentIndex, incoming))
