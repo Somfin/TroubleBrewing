@@ -14,6 +14,11 @@ public class Processor : LimitedPlacement
             {
                 GameObject processed = GameObject.Instantiate(process.processedIngredient) as GameObject;
                 processed.transform.position = spawnPoint.transform.position;
+                if (GetComponent<AudioSource>() != null)
+                {
+                    GetComponent<AudioSource>().Stop();
+                    GetComponent<AudioSource>().Play();
+                }
             }
         }
     }

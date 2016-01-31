@@ -33,6 +33,11 @@ public class Alchemy : LimitedPlacement
             {
                 // failure event
             }
+            else
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().Play();
+            }
             ingredientSet = false;
         }
     }

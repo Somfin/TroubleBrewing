@@ -5,12 +5,17 @@ public class Cauldron : Placement
 {
     public GameObject recipe;
     public GameObject pedestal;
+    public GameObject mySound;
+    public GameObject book;
     public int currentIndex;
     public GameObject winShine;
     public GameObject failShine;
+    public bool failed;
 
     void Start(){
         currentIndex = 0;
+        book.GetComponent<Information>().info = GameObject.Instantiate(recipe.GetComponent<Recipe>().book);
+        book.GetComponent<Information>().info.transform.SetParent(GameObject.Find("CameraCanvas").transform, false);
     }
 
     public override bool place(GameObject core){
@@ -46,7 +51,21 @@ public class Cauldron : Placement
         {
             GameObject fail = GameObject.Instantiate(failShine);
             fail.transform.position = this.gameObject.transform.position;
+            failed = true;
         }
+        AudioSource audio = mySound.GetComponent<AudioSource>();
+        audio.Stop();
+        audio.Play();
         return true;
+    }
+
+    public bool isFinished()
+    {
+        return recipe.GetComponent<Recipe>().isComplete(currentIndex);
+    }
+
+    public bool isFailed()
+    {
+        return failed;
     }
 }
